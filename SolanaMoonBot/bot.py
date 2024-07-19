@@ -17,4 +17,5 @@ if __name__ == '__main__':
         token = os.getenv('TG_BOT_TOKEN_KEY')
     except (TokenValidationError, Exception) as e:
         pass
-        
+    
+    logger.info(f"Started")
