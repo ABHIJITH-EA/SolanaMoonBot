@@ -16,7 +16,7 @@ Get a bot token from [@botfather](https://t.me/botfather) check this document [C
 
 Add the token in the *example.env* then,
 ```
-mv example.env
+cp example.env .env
 ```
 
 **_NOTE:_** 

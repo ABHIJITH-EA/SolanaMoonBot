@@ -1,4 +1,4 @@
-import pathlib
+from pathlib import Path
 
 def get_root_dir():
     """ Get the root directory of the application
@@ -7,11 +7,20 @@ def get_root_dir():
             pathlib.Path the root directory of the 
             application
     """
-    return pathlib.Path.cwd().parent
+    return Path.cwd().parent
 
 
-def create_dir_in_root_dir():
-    pass
+def create_dir_in_root_dir(dirname: str):
+    """ Make directory in the root directory
+    
+        Args:
+            dirname: Name of the directory to be created
+    """
+    try:
+        path = Path.joinpath(get_root_dir(), dirname)
+        Path.mkdir(path)
+    except FileExistsError as e:
+        pass
 
 
 def attach_file_extention(file_name: str, ext: str):

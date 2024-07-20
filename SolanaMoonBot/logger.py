@@ -39,8 +39,10 @@ def get_bot_logger() -> logging.Logger:
     logger = logging.getLogger(config.bot_logger)
     
     handler_name = log_handler_path(config.bot_log_filename)
-    if not os.path.exists():
-        pass
+    
+    if not os.path.exists(handler_name):
+        utils.create_dir_in_root_dir(config.log_dir)
+    
     handler = logging.FileHandler(handler_name)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
